@@ -1,9 +1,11 @@
 [unstable]
 build-std = ["core"]
 build-std-features = ["compiler-builtins-mem"]
-
-[build]
-target = "x86_64-unknown-none"
+unstable-options = true
+json-target-spec = true
 
 [target.x86_64-unknown-none]
 rustflags = ["-C", "link-arg=-Tlinker.ld"]
+
+[target.16bit]
+rustflags = ["-C", "link-arg=-T16bit.ld"]
